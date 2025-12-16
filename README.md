@@ -141,14 +141,34 @@ Learn more about Mermaid syntax: https://mermaid.js.org/
 
 ## Deployment to GitHub Pages
 
+### How Routing Works on GitHub Pages
+
+GitHub Pages automatically serves `index.html` files from directories, which means:
+- `/` → serves `index.html`
+- `/experience/` → serves `experience/index.html`
+- `/projects/` → serves `projects/index.html`
+- `/contact/` → serves `contact/index.html`
+
+**Important:** The `404.html` file in this repository handles routing for:
+- Direct URL access (e.g., `/experience` without trailing slash)
+- Page refreshes on subdirectories
+- Invalid routes (redirects to home)
+
+This ensures all routes work correctly on GitHub Pages.
+
 ### Method 1: Direct Deployment
-1. Push all files to a GitHub repository
+1. Push all files to a GitHub repository (including `404.html`)
 2. Go to repository Settings > Pages
 3. Select source branch (usually `main` or `master`)
 4. Select `/ (root)` as the folder
 5. Click Save
 
 Your site will be available at `https://<username>.github.io/<repository-name>/`
+
+**Note:** If using a custom domain (e.g., `ainis.dev`), make sure:
+- Your domain is configured in repository Settings > Pages > Custom domain
+- DNS records point to GitHub Pages
+- The `.nojekyll` file is present (already included)
 
 ### Method 2: Using GitHub Actions (Optional)
 Create `.github/workflows/deploy.yml`:
