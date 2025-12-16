@@ -1,5 +1,46 @@
 # Personal CV Website
 
+A modern, responsive CV website built with vanilla HTML/CSS/JavaScript, featuring expandable experience sections, interactive system architecture diagrams, and smooth animations.
+
+## Features
+
+### Pages
+- **Home**: Landing page with introduction and navigation
+- **Experience**: Work experience and education timeline with expandable details
+- **Projects**: Blog showcasing backend system architecture with interactive Mermaid.js diagrams
+- **Contact**: Contact information with LinkedIn and email links
+
+### Key Features
+- **Expandable Experience Cards**: Progressive disclosure design for displaying detailed work experience information
+- **Interactive Architecture Diagrams**: Mermaid.js diagrams for visualizing backend system designs
+- **Smooth Animations**: Scroll-triggered animations using Intersection Observer
+- **Responsive Design**: Mobile-first design that works on all devices
+- **Clean URL Structure**: Directory-based routing without `.html` extensions
+- **SEO Optimized**: Meta tags, Open Graph, and structured data for better search visibility
+
+## Project Structure
+
+```
+cv/
+├── index.html          # Home page
+├── experience/
+│   └── index.html      # Work experience & education (timeline with expandable cards)
+├── projects/
+│   └── index.html      # Blog & system architecture with diagrams
+├── contact/
+│   └── index.html      # Contact page
+├── css/
+│   ├── main.css        # Main styles and layout
+│   └── animations.css  # Animation styles and transitions
+├── js/
+│   ├── main.js         # Navigation and utilities
+│   ├── diagrams.js     # Mermaid.js diagram rendering
+│   └── animations.js   # Scroll animations and expandable card interactions
+├── data/
+│   └── projects.json   # Project data with diagram definitions
+└── README.md           # This file
+```
+
 ## Running Locally
 
 To view the website locally, you have several options:
@@ -31,79 +72,29 @@ Then open `http://localhost:8000` in your browser.
 Simply open `index.html` in your browser, though some features may not work perfectly due to CORS restrictions with local files.
 
 ## URL Structure
+
 The website uses clean URLs without `.html` extensions:
 - `/` - Home page
 - `/experience/` - Experience and Education
 - `/projects/` - Blog and System Architecture
 - `/contact/` - Contact information
 
-## Deployment
-
-# Personal CV Website
-
-A modern, responsive CV website built with vanilla HTML/CSS/JavaScript, featuring:
-
-- **Tailwind CSS** for modern, utility-first styling
-- **Three.js** particle system background
-- **Mermaid.js** for backend system architecture diagrams
-- **Dark mode** support with smooth transitions
-- **Responsive design** for all devices
-- **PDF export** functionality
-- **Smooth animations** and scroll effects
-
-## Features
-
-### Pages
-- **Home**: Landing page with about section
-- **Experience**: Work experience timeline
-- **Education**: Educational background
-- **Skills**: Technical skills and technologies
-- **Projects**: Portfolio with expandable system architecture diagrams
-- **Contact**: Contact form and LinkedIn integration
-
-### Key Features
-- Dark/Light mode toggle with localStorage persistence
-- Three.js animated particle background
-- Interactive Mermaid.js diagrams for backend architecture visualization
-- Smooth scroll animations using Intersection Observer
-- Responsive design for mobile, tablet, and desktop
-- LinkedIn integration in footer and contact page
-
-## Project Structure
-
-```
-cv/
-├── index.html          # Home page
-├── experience/
-│   └── index.html      # Work experience & education (timeline)
-├── projects/
-│   └── index.html      # Blog & system architecture with diagrams
-├── contact/
-│   └── index.html      # Contact page
-├── css/
-│   ├── main.css        # Main styles
-│   └── animations.css  # Animation styles
-├── js/
-│   ├── main.js         # Navigation and utilities
-│   ├── diagrams.js     # Mermaid.js diagram rendering
-│   └── animations.js   # Scroll animations and interactions
-├── data/
-│   └── projects.json   # Project data with diagram definitions
-└── README.md           # This file
-```
-
-## Setup
-
-1. Clone or download this repository
-2. Open `index.html` in a web browser
-3. No build process required - all files are static
-
 ## Customization
 
 ### Update Personal Information
 - Edit the HTML files to update your personal information
 - Update LinkedIn URL in all pages (search for `yourprofile` and replace)
-- Modify experience, education, and skills sections
+- Update email addresses (search for `your.email@example.com` and replace)
+- Modify experience, education, and project sections
+
+### Add Work Experience
+Edit `experience/index.html` to add or modify work experience entries. Each entry supports:
+- Summary information (always visible)
+- Expandable sections for:
+  - Key Responsibilities
+  - Major Achievements
+  - Technologies & Tools
+  - Key Projects
 
 ### Add Projects
 Edit `data/projects.json` to add or modify projects:
@@ -132,6 +123,22 @@ Edit `data/projects.json` to add or modify projects:
 
 Learn more about Mermaid syntax: https://mermaid.js.org/
 
+## Technologies Used
+
+- **HTML5**: Semantic markup
+- **CSS3**: Custom styles and animations
+- **JavaScript (ES6+)**: Vanilla JavaScript, no frameworks
+- **Tailwind CSS**: Utility-first CSS framework (via CDN)
+- **Mermaid.js**: Diagram and flowchart rendering
+- **Google Fonts**: Caveat font for handwritten logo
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
 ## Deployment to GitHub Pages
 
 ### Method 1: Direct Deployment
@@ -141,12 +148,9 @@ Learn more about Mermaid syntax: https://mermaid.js.org/
 4. Select `/ (root)` as the folder
 5. Click Save
 
-### Method 2: Using gh-pages Branch
-1. Create a `gh-pages` branch
-2. Push all files to the `gh-pages` branch
-3. GitHub Pages will automatically serve from this branch
+Your site will be available at `https://<username>.github.io/<repository-name>/`
 
-### Method 3: Using GitHub Actions (Optional)
+### Method 2: Using GitHub Actions (Optional)
 Create `.github/workflows/deploy.yml`:
 
 ```yaml
@@ -168,35 +172,18 @@ jobs:
           publish_dir: ./
 ```
 
-## Technologies Used
+## Notes
 
-- **HTML5**: Semantic markup
-- **CSS3**: Custom styles and animations
-- **JavaScript (ES6+)**: Vanilla JavaScript, no frameworks
-- **Tailwind CSS**: Utility-first CSS framework (via CDN)
-- **Three.js**: 3D graphics library for particle system
-- **Mermaid.js**: Diagram and flowchart rendering
-- **html2pdf.js**: PDF export functionality (optional)
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+- The LinkedIn URL needs to be updated in all HTML files (search for `yourprofile`)
+- Replace placeholder email addresses (search for `your.email@example.com`)
+- Replace placeholder GitHub username (search for `yourusername`)
+- All external libraries are loaded via CDN for simplicity
+- The `.nojekyll` file ensures GitHub Pages serves the site correctly
 
 ## License
 
 This project is open source and available for personal use.
 
-## Notes
-
-- The LinkedIn URL needs to be updated in all HTML files
-- Replace placeholder content with your actual information
-- The PDF export feature requires html2pdf.js library (can be added via CDN)
-- All external libraries are loaded via CDN for simplicity
-
 ## Contributing
 
 Feel free to fork this project and customize it for your own CV website!
-
