@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog and system architecture articles by Ainis Vabolis. Learn about backend development, software architecture, web applications, and consulting insights.">
+    <meta name="keywords" content="backend development blog, system architecture, software engineering blog, web apps, consulting, backend systems, API design, scalable architecture, Ainis Vabolis">
+    <meta name="author" content="Ainis Vabolis">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ainis.dev/projects/">
+    <meta property="og:title" content="Blog & System Architecture - Ainis Vabolis">
+    <meta property="og:description" content="Blog and system architecture articles about backend development, software architecture, and web applications.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://ainis.dev/projects/">
+    <meta property="twitter:title" content="Blog & System Architecture - Ainis Vabolis">
+    <meta property="twitter:description" content="Blog and system architecture articles about backend development and software architecture.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ainis.dev/projects/">
+    
+    <title>hello, I am Ainis 👋</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body class="text-gray-900 flex flex-col min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../" class="handwritten-logo">ainis.dev</a>
+                <div class="flex items-center space-x-6">
+                    <a href="../experience/" class="nav-link">Experience</a>
+                    <a href="../projects/" class="nav-link active">Blog</a>
+                    <a href="../contact/" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-16">
+        <section class="container mx-auto px-4 py-16">
+            <h1 class="text-4xl font-bold mb-12 text-center">Blog & System Architecture</h1>
+            
+            <div class="max-w-4xl mx-auto space-y-8" id="projects-container">
+                <!-- Projects will be loaded from projects.json -->
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/diagrams.js"></script>
+    <script src="../js/animations.js"></script>
+</body>
+</html>
+

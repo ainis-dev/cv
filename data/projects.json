@@ -1,0 +1,35 @@
+{
+  "projects": [
+    {
+      "title": "Microservices E-Commerce Platform",
+      "description": "A scalable e-commerce backend system built with microservices architecture, handling product catalog, user management, order processing, and payment integration.",
+      "technologies": ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
+      "diagram": {
+        "type": "graph",
+        "definition": "graph TB\n    A[Client] --> B[API Gateway]\n    B --> C[Auth Service]\n    B --> D[Product Service]\n    B --> E[Order Service]\n    B --> F[Payment Service]\n    D --> G[(Product DB)]\n    E --> H[(Order DB)]\n    F --> I[(Payment DB)]\n    C --> J[(User DB)]\n    D --> K[Cache Layer]\n    E --> K\n    K --> L[(Redis)]\n    M[Message Queue] --> E\n    M --> F"
+      },
+      "details": "Designed and implemented a microservices-based e-commerce platform with API Gateway pattern. Services communicate via REST APIs and message queues. Implemented caching layer for improved performance and scalability."
+    },
+    {
+      "title": "Real-time Analytics Dashboard Backend",
+      "description": "Backend system for processing and aggregating real-time analytics data from multiple sources, providing RESTful APIs for dashboard visualization.",
+      "technologies": ["Python", "Django", "MongoDB", "Apache Kafka", "Elasticsearch", "AWS"],
+      "diagram": {
+        "type": "flowchart",
+        "definition": "flowchart LR\n    A[Data Sources] --> B[Kafka Stream]\n    B --> C[Data Processor]\n    C --> D[Data Aggregator]\n    D --> E[(MongoDB)]\n    D --> F[(Elasticsearch)]\n    G[API Server] --> E\n    G --> F\n    G --> H[Client Dashboard]\n    I[Cache Layer] --> G"
+      },
+      "details": "Built a real-time analytics processing system that ingests data from multiple sources via Kafka, processes and aggregates it, and stores in both MongoDB and Elasticsearch for different query patterns. RESTful API serves processed data to frontend dashboard."
+    },
+    {
+      "title": "User Authentication & Authorization Service",
+      "description": "Centralized authentication and authorization service supporting OAuth2, JWT tokens, and role-based access control (RBAC).",
+      "technologies": ["Node.js", "Express.js", "PostgreSQL", "Redis", "JWT", "OAuth2"],
+      "diagram": {
+        "type": "sequenceDiagram",
+        "definition": "sequenceDiagram\n    participant Client\n    participant Auth Service\n    participant User DB\n    participant Token Cache\n    participant Protected Service\n    \n    Client->>Auth Service: Login Request\n    Auth Service->>User DB: Validate Credentials\n    User DB-->>Auth Service: User Data\n    Auth Service->>Token Cache: Store Refresh Token\n    Auth Service-->>Client: Access Token + Refresh Token\n    \n    Client->>Protected Service: API Request + Token\n    Protected Service->>Auth Service: Validate Token\n    Auth Service-->>Protected Service: Token Valid\n    Protected Service-->>Client: Protected Resource"
+      },
+      "details": "Developed a comprehensive authentication service handling user login, token generation, refresh token management, and token validation. Integrated with multiple services for centralized authentication."
+    }
+  ]
+}
+

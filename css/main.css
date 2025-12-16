@@ -1,0 +1,142 @@
+/* Custom CSS Variables */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --particle-color: #3b82f6;
+}
+
+/* Subtle Professional Background - Follows UX/UI Principles */
+body {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Animated Blob Background Elements */
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+
+/* Handwritten Logo Style */
+.handwritten-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: all 0.3s ease;
+}
+
+.handwritten-logo:hover {
+    color: #3b82f6;
+    transform: scale(1.05);
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    @apply text-gray-700 hover:text-blue-600 transition-colors;
+}
+
+.nav-link.active {
+    @apply text-blue-600 font-semibold;
+}
+
+/* Smooth Transitions */
+* {
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+}
+
+/* Diagram Container Styles */
+.diagram-container {
+    @apply bg-white rounded-lg p-4 mt-4 overflow-x-auto;
+}
+
+.diagram-container .mermaid {
+    @apply flex justify-center items-center;
+}
+
+/* Project Card Expandable Section */
+.project-details {
+    @apply hidden mt-4 pt-4 border-t border-gray-200;
+}
+
+.project-details.expanded {
+    @apply block;
+}
+
+/* Form Styles */
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* Fix for gradient text clipping descenders */
+.bg-clip-text {
+    padding-bottom: 0.5rem;
+    line-height: 1.2;
+    overflow: visible;
+    display: inline-block;
+}
+
+/* Print Styles for PDF Export */
+@media print {
+    #particle-canvas {
+        display: none;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    footer {
+        display: none;
+    }
+}
+
