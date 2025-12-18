@@ -44,11 +44,17 @@
             "API Development",
             "Software Consulting"
         ],
-        "description": "Senior Software Engineer specializing in backend development, system architecture, consulting, and web applications."
+        "description": "Senior Software Engineer specializing in backend development, system architecture, consulting, and web applications, freelance software engineer."
     }
     </script>
     
     <title>hello, I am Ainis 👋</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3EAV%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -57,91 +63,569 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="text-gray-900 flex flex-col min-h-screen">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#home" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="handwritten-logo">ainis.dev</a>
-                <div class="flex items-center space-x-6">
-                    <a href="/experience/" class="nav-link">Experience</a>
-                    <a href="/projects/" class="nav-link">Blog</a>
-                    <a href="/contact/" class="nav-link">Contact</a>
+                <a href="#home" class="handwritten-logo focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg px-2 py-1">ainis.dev</a>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#experience" class="nav-link" data-nav="experience">Experience</a>
+                    <a href="#education" class="nav-link" data-nav="education">Education</a>
+                    <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
+                </div>
+            </div>
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a href="#experience" class="nav-link mobile-nav-link px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" data-nav="experience">Experience</a>
+                    <a href="#education" class="nav-link mobile-nav-link px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" data-nav="education">Education</a>
+                    <a href="#contact" class="nav-link mobile-nav-link px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" data-nav="contact">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-20 pb-16 flex-1 flex items-center relative">
+    <main class="pt-20 pb-16">
         <!-- Decorative Background Elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
             <div class="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
             <div class="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
             <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
         
+        <!-- Bouncing Ball -->
+        <div id="bouncing-ball" class="hidden md:block fixed z-50 transition-transform duration-75 ease-linear cursor-grab active:cursor-grabbing" style="pointer-events: auto;">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500 shadow-lg opacity-80 blur-sm transition-transform duration-150 pointer-events-none"></div>
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-indigo-400 shadow-xl -mt-12 transition-transform duration-150 pointer-events-none"></div>
+        </div>
+        
         <!-- Hero Section -->
-        <section class="container mx-auto px-4 py-16 w-full relative z-10">
-            <div class="max-w-4xl mx-auto text-center fade-in overflow-visible">
-                <p class="text-lg md:text-xl text-gray-600 mb-4 font-medium">
-                    Welcome
-                </p>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-                    <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent pb-2 inline-block">
-                        Ainis Vabolis
-                    </span>
-                </h1>
-                <p class="text-2xl md:text-3xl text-gray-700 mb-8 font-light">
-                    Senior Software Engineer
-                </p>
-                <div class="text-lg text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed space-y-4">
-                    <p>
-                        I am a backend-focused software engineer with experience in frontend development. 
-                        My passion lies in designing and building scalable backend systems and architectures.
-                    </p>
-                    <p class="text-gray-500">
-                        While I cannot showcase frontend work directly, I can demonstrate the architecture 
-                        and design of backend systems I've developed through component graphs and system diagrams.
-                    </p>
+        <section id="home" class="container mx-auto px-4 py-20 md:py-32 min-h-screen flex items-center relative z-10">
+            <div class="max-w-5xl mx-auto w-full">
+                <!-- Main Heading with Typing Animation -->
+                <div class="text-center mb-4 fade-in">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span id="typing-text" class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent inline-block"></span>
+                        <span id="typing-cursor" class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent inline-block ml-1">|</span>
+                    </h1>
+                    <div class="flex flex-wrap justify-center items-center gap-3 mb-4">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span class="text-sm font-medium text-gray-700">Senior Software Engineer</span>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-50 to-indigo-50 backdrop-blur-sm rounded-full border border-purple-200 shadow-sm">
+                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-sm font-medium text-purple-700">Open to Freelance</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <a href="/experience/" class="btn-experience">
-                        View Experience
-                    </a>
-                    <a href="/projects/" class="btn-projects">
-                        View Blog
-                    </a>
-                    <a href="/contact/" class="btn-contact">
-                        Get in Touch
+
+                <!-- Description Card -->
+                <div class="max-w-3xl mx-auto mb-12 fade-in">
+                    <div class="bg-white/70 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-xl border border-gray-100">
+                        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed text-center font-light">
+                            I specialize in <span class="font-semibold text-blue-600">Go development</span>, focusing on designing and building <span class="font-semibold text-purple-600">scalable, complex distributed systems</span>. 
+                            My experience spans architecture design, system optimization, and solving challenging problems at scale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skills Badges -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
+                    <span class="px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200 shadow-sm hover:shadow-md transition-shadow">Go</span>
+                    <span class="px-4 py-2 bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 rounded-full text-sm font-medium border border-purple-200 shadow-sm hover:shadow-md transition-shadow">Distributed Systems</span>
+                    <span class="px-4 py-2 bg-gradient-to-r from-indigo-50 to-indigo-100 text-indigo-700 rounded-full text-sm font-medium border border-indigo-200 shadow-sm hover:shadow-md transition-shadow">System Architecture</span>
+                    <span class="px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 rounded-full text-sm font-medium border border-gray-200 shadow-sm hover:shadow-md transition-shadow">Scalability</span>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex justify-center mb-12 fade-in">
+                    <a href="#experience" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-offset-2">
+                        <span>View Experience</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
                     </a>
                 </div>
-                <div class="flex justify-center items-center gap-6 mt-8">
+
+                <!-- Social Links -->
+                <div class="flex justify-center items-center gap-8 fade-in">
                     <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
-                       class="text-gray-700 hover:text-blue-600 transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                       class="group p-4 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="GitHub profile">
+                        <svg class="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
                         </svg>
                     </a>
                     <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" 
-                       class="text-gray-700 hover:text-blue-600 transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                       class="group p-4 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="LinkedIn profile">
+                        <svg class="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
                     <a href="mailto:your.email@example.com" 
-                       class="text-gray-700 hover:text-blue-600 transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                       class="group p-4 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Send email">
+                        <svg class="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                     </a>
                 </div>
             </div>
         </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container mx-auto px-4 py-16 md:py-32 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+                        Experience
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        A journey through my professional growth
+                    </p>
+                </div>
+
+                <!-- Simple Timeline -->
+                <div class="relative">
+                    <!-- Timeline Items -->
+                    <div>
+                        <!-- Item 1: Work Experience - Vinted - Apr 2025 - Present -->
+                        <div class="relative fade-in mb-8">
+                            <div class="bg-white rounded-xl p-6 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 cursor-pointer timeline-item group focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" data-item="1">
+                                <div class="flex items-start justify-between gap-6">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-3">
+                                            <h3 class="text-xl md:text-2xl font-bold text-gray-900">Senior Backend Engineer</h3>
+                                            <span class="px-2 py-0.5 bg-blue-50 text-blue-700 rounded-md text-xs font-semibold">Current</span>
+                                        </div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <a href="https://www.vinted.com" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg" onclick="event.stopPropagation()">
+                                                <img src="images/logos/vinted.svg" alt="Vinted logo" class="w-12 h-12 object-contain rounded-lg bg-white p-1">
+                                            </a>
+                                            <p class="text-lg text-gray-800 font-semibold">Vinted</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500 mb-6">Apr 2025 - Present • 9 mos</p>
+                                        <div class="flex flex-wrap gap-2.5">
+                                            <span class="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs font-medium shadow-sm">Go</span>
+                                            <span class="px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-lg text-xs font-medium shadow-sm">MySQL</span>
+                                            <span class="px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-xs font-medium shadow-sm">Kubernetes</span>
+                                            <span class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium shadow-sm">Distributed Systems</span>
+                                            <span class="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-lg text-xs font-medium shadow-sm">Kafka</span>
+                                        </div>
+                                    </div>
+                                    <button class="expand-btn text-gray-400 hover:text-gray-600 transition-all duration-300 flex-shrink-0 p-2 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Expand details" aria-expanded="false">
+                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="expandable-content hidden overflow-hidden">
+                                    <div class="pt-8 mt-8 border-t border-gray-200">
+                                        <p class="text-gray-700 mb-6 leading-relaxed text-base">
+                                            Developing an adtech system for the entire Vinted platform, building scalable backend systems using Go, Kubernetes, and Kafka to support platform growth and handle increasing traffic demands.
+                                        </p>
+                                        <div class="flex items-center gap-2 mb-8">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <p class="text-sm text-gray-600">Vilniaus, Lithuania • Full-time</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-5 text-lg">Key Responsibilities</h4>
+                                        <ul class="space-y-4 text-gray-700">
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Design and develop scalable adtech backend systems using Go and distributed systems principles</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Contribute to adtech platform architecture decisions and technical roadmap planning</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Collaborate with cross-functional teams to deliver high-quality adtech solutions for the Vinted platform</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Work Experience - Adform - Senior Software Engineer - Jan 2024 - Apr 2025 -->
+                        <div class="relative fade-in mb-8">
+                            <div class="bg-white rounded-xl p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 cursor-pointer timeline-item group" data-item="3">
+                                <div class="flex items-start justify-between gap-6">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">Senior Software Engineer</h3>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <a href="https://www.adform.com" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg" onclick="event.stopPropagation()">
+                                                <img src="images/logos/adform.svg" alt="Adform logo" class="w-12 h-12 object-contain rounded-lg bg-white p-1">
+                                            </a>
+                                            <p class="text-lg text-gray-800 font-semibold">Adform</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500 mb-6">Jan 2024 - Apr 2025 • 1 yr 4 mos</p>
+                                        <div class="flex flex-wrap gap-2.5">
+                                            <span class="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs font-medium shadow-sm">.NET</span>
+                                            <span class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium shadow-sm">Distributed Systems</span>
+                                            <span class="px-3 py-1.5 bg-red-100 text-red-700 rounded-lg text-xs font-medium shadow-sm">MSSQL</span>
+                                            <span class="px-3 py-1.5 bg-amber-100 text-amber-700 rounded-lg text-xs font-medium shadow-sm">RabbitMQ</span>
+                                            <span class="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-lg text-xs font-medium shadow-sm">Kafka</span>
+                                        </div>
+                                    </div>
+                                    <button class="expand-btn text-gray-400 hover:text-gray-600 transition-all duration-300 flex-shrink-0 p-2 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Expand details" aria-expanded="false">
+                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="expandable-content hidden overflow-hidden">
+                                    <div class="pt-8 mt-8 border-t border-gray-200">
+                                        <p class="text-gray-700 mb-6 leading-relaxed text-base">
+                                            Led backend development initiatives, architected scalable distributed systems using .NET, MSSQL, RabbitMQ, and Kafka, while mentoring team members and driving innovation in ad tech solutions.
+                                        </p>
+                                        <div class="flex items-center gap-2 mb-8">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <p class="text-sm text-gray-600">Vilniaus, Lithuania • Full-time • On-site</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-5 text-lg">Key Responsibilities</h4>
+                                        <ul class="space-y-4 text-gray-700">
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Led architecture decisions and technical design for distributed systems handling high-volume ad traffic</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Mentored junior developers through code reviews, pair programming, and technical guidance</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Drove innovation in ad tech platform development, improving system performance and reliability</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Work Experience - Adform - Software Engineer - Sep 2021 - Jan 2024 -->
+                        <div class="relative fade-in mb-8">
+                            <div class="bg-white rounded-xl p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 cursor-pointer timeline-item group" data-item="4">
+                                <div class="flex items-start justify-between gap-6">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">Software Engineer</h3>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <a href="https://www.adform.com" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg" onclick="event.stopPropagation()">
+                                                <img src="images/logos/adform.svg" alt="Adform logo" class="w-12 h-12 object-contain rounded-lg bg-white p-1">
+                                            </a>
+                                            <p class="text-lg text-gray-800 font-semibold">Adform</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500 mb-6">Sep 2021 - Jan 2024 • 2 yrs 5 mos</p>
+                                        <div class="flex flex-wrap gap-2.5">
+                                            <span class="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs font-medium shadow-sm">.NET</span>
+                                            <span class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium shadow-sm">Distributed Systems</span>
+                                            <span class="px-3 py-1.5 bg-red-100 text-red-700 rounded-lg text-xs font-medium shadow-sm">MSSQL</span>
+                                            <span class="px-3 py-1.5 bg-amber-100 text-amber-700 rounded-lg text-xs font-medium shadow-sm">RabbitMQ</span>
+                                            <span class="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-lg text-xs font-medium shadow-sm">Kafka</span>
+                                        </div>
+                                    </div>
+                                    <button class="expand-btn text-gray-400 hover:text-gray-600 transition-all duration-300 flex-shrink-0 p-2 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Expand details" aria-expanded="false">
+                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="expandable-content hidden overflow-hidden">
+                                    <div class="pt-8 mt-8 border-t border-gray-200">
+                                        <p class="text-gray-700 mb-6 leading-relaxed text-base">
+                                            Developed backend systems using .NET, MSSQL, RabbitMQ, and Kafka as part of agile teams. Built distributed systems that enhanced Adform's market position and improved customer experience.
+                                        </p>
+                                        <div class="flex items-center gap-2 mb-8">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <p class="text-sm text-gray-600">Vilniaus, Lithuania • Full-time</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-5 text-lg">Key Achievements</h4>
+                                        <ul class="space-y-4 text-gray-700">
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Built a distributed system enabling customers to customize ad categories for targeted advertising campaigns</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Developed a flexible budget organization system that improved ad spending allocation and management</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Migrated legacy systems to modern architecture with seamless Google Ads API integration</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Collaborated in agile backend teams to deliver scalable solutions that enhanced platform capabilities</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Work Experience - SOFTETA - May 2021 - Sep 2021 -->
+                        <div class="relative fade-in mb-8">
+                            <div class="bg-white rounded-xl p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 cursor-pointer timeline-item group" data-item="5">
+                                <div class="flex items-start justify-between gap-6">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">Software Engineer</h3>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <a href="https://www.softeta.com" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg" onclick="event.stopPropagation()">
+                                                <img src="images/logos/softeta.jpeg" alt="SOFTETA logo" class="w-12 h-12 object-contain rounded-lg bg-white p-1">
+                                            </a>
+                                            <p class="text-lg text-gray-800 font-semibold">SOFTETA</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500 mb-6">May 2021 - Sep 2021 • 5 mos</p>
+                                        <div class="flex flex-wrap gap-2.5">
+                                            <span class="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs font-medium shadow-sm">.NET Framework</span>
+                                            <span class="px-3 py-1.5 bg-sky-100 text-sky-700 rounded-lg text-xs font-medium shadow-sm">Microsoft Azure</span>
+                                            <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium shadow-sm">Backend Development</span>
+                                            <span class="px-3 py-1.5 bg-pink-100 text-pink-700 rounded-lg text-xs font-medium shadow-sm">Frontend Development</span>
+                                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-lg text-xs font-medium shadow-sm">Mobile Development</span>
+                                        </div>
+                                    </div>
+                                    <button class="expand-btn text-gray-400 hover:text-gray-600 transition-all duration-300 flex-shrink-0 p-2 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Expand details" aria-expanded="false">
+                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="expandable-content hidden overflow-hidden">
+                                    <div class="pt-8 mt-8 border-t border-gray-200">
+                                        <p class="text-gray-700 mb-6 leading-relaxed text-base">
+                                            Worked as a contractor on diverse software projects using .NET Framework and Microsoft Azure. Delivered solutions across backend, frontend, and mobile platforms, focusing on problem-solving, optimization, and system modernization.
+                                        </p>
+                                        <div class="flex items-center gap-2 mb-8">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <p class="text-sm text-gray-600">Vilniaus, Lithuania • Full-time</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-5 text-lg">Key Responsibilities</h4>
+                                        <ul class="space-y-4 text-gray-700">
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Developed and maintained customer software systems using .NET Framework and Azure cloud services</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Optimized existing systems and modernized legacy applications for improved performance</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Built solutions across backend, frontend, and mobile platforms to meet client needs</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Collaborated with clients to understand requirements and deliver tailored software solutions</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 6: Work Experience - SEB - Mar 2020 - May 2021 -->
+                        <div class="relative fade-in mb-8">
+                            <div class="bg-white rounded-xl p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 cursor-pointer timeline-item group" data-item="2">
+                                <div class="flex items-start justify-between gap-6">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">Solution Developer</h3>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <a href="https://www.seb.lt" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg" onclick="event.stopPropagation()">
+                                                <img src="images/logos/seb.jpg" alt="SEB logo" class="w-12 h-12 object-contain rounded-lg bg-white p-1">
+                                            </a>
+                                            <p class="text-lg text-gray-800 font-semibold">SEB</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500 mb-6">Mar 2020 - May 2021 • 1 yr 3 mos</p>
+                                        <div class="flex flex-wrap gap-2.5">
+                                            <span class="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs font-medium shadow-sm">.NET</span>
+                                            <span class="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-xs font-medium shadow-sm">Windows Forms</span>
+                                            <span class="px-3 py-1.5 bg-red-100 text-red-700 rounded-lg text-xs font-medium shadow-sm">MSSQL</span>
+                                        </div>
+                                    </div>
+                                    <button class="expand-btn text-gray-400 hover:text-gray-600 transition-all duration-300 flex-shrink-0 p-2 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Expand details" aria-expanded="false">
+                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="expandable-content hidden overflow-hidden">
+                                    <div class="pt-8 mt-8 border-t border-gray-200">
+                                        <p class="text-gray-700 mb-6 leading-relaxed text-base">
+                                            Modernized a car leasing web application using .NET and Windows Forms, implementing new features, optimizing finance processes, and migrating legacy systems to improve efficiency and user experience.
+                                        </p>
+                                        <div class="flex items-center gap-2 mb-8">
+                                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            <p class="text-sm text-gray-600">Vilniaus, Lithuania • Full-time</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-5 text-lg">Key Responsibilities</h4>
+                                        <ul class="space-y-4 text-gray-700">
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Modernized car leasing web application with new features and UI improvements using .NET and Windows Forms</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Optimized finance processes and database queries using MSSQL to improve system performance</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Migrated legacy systems to modern .NET architecture, improving maintainability and scalability</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <span class="text-blue-600 mt-1 flex-shrink-0 font-bold">→</span>
+                                                <span class="leading-relaxed">Collaborated in an agile team environment, participating in sprint planning and code reviews</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="container mx-auto px-4 py-16 md:py-32 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+                        Education
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Academic achievements and qualifications
+                    </p>
+                </div>
+
+                <!-- Education Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <!-- Master's degree -->
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-5 border border-purple-100 fade-in">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Master's degree</h3>
+                        <p class="text-sm text-gray-700">Global leadership and strategy</p>
+                        <p class="text-sm text-gray-600 mt-1">ISM University of Management and Economics</p>
+                    </div>
+                    <!-- Bachelor's degree -->
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-5 border border-purple-100 fade-in">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Bachelor's degree</h3>
+                        <p class="text-sm text-gray-700">Computer Software Engineering</p>
+                        <p class="text-sm text-gray-600 mt-1">Vilniaus universitetas / Vilnius University</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-4 py-16 md:py-32 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+                        Get in Touch
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-3">
+                        I'm open to freelance opportunities and consulting projects. Feel free to reach out via email or LinkedIn.
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-full border border-purple-200 shadow-sm">
+                        <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="text-sm font-medium text-purple-700">Available for freelance work</span>
+                    </div>
+                </div>
+
+                <!-- Contact Options -->
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 fade-in">
+                    <a href="mailto:your.email@example.com" 
+                       class="group flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-offset-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="font-semibold text-lg">Email Me</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" 
+                       class="group flex items-center gap-4 px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-offset-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span class="font-semibold text-lg">Connect on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-40 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-offset-2" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">© 2025 Ainis Vabolis. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/bouncing-ball.js"></script>
 </body>
 </html>
 

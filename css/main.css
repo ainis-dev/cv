@@ -8,6 +8,11 @@
     --particle-color: #3b82f6;
 }
 
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Subtle Professional Background - Follows UX/UI Principles */
 body {
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
@@ -63,10 +68,22 @@ body {
 /* Navigation Link Styles */
 .nav-link {
     @apply text-gray-700 hover:text-blue-600 transition-colors;
+    position: relative;
 }
 
 .nav-link.active {
     @apply text-blue-600 font-semibold;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    border-radius: 2px;
 }
 
 /* Smooth Transitions */
@@ -93,23 +110,6 @@ body {
     @apply bg-gray-400;
 }
 
-/* Diagram Container Styles */
-.diagram-container {
-    @apply bg-white rounded-lg p-4 mt-4 overflow-x-auto;
-}
-
-.diagram-container .mermaid {
-    @apply flex justify-center items-center;
-}
-
-/* Project Card Expandable Section */
-.project-details {
-    @apply hidden mt-4 pt-4 border-t border-gray-200;
-}
-
-.project-details.expanded {
-    @apply block;
-}
 
 /* Form Styles */
 input:focus,

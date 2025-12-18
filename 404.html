@@ -37,8 +37,6 @@
                 <a href="/" class="handwritten-logo">ainis.dev</a>
                 <div class="flex items-center space-x-4 md:space-x-6">
                     <a href="/experience/" class="nav-link text-sm md:text-base">Experience</a>
-                    <a href="/projects/" class="nav-link text-sm md:text-base">Blog</a>
-                    <a href="/contact/" class="nav-link text-sm md:text-base">Contact</a>
                 </div>
             </div>
         </div>
@@ -82,11 +80,8 @@
                     <a href="/" class="btn-experience">
                         Go Home
                     </a>
-                    <a href="/experience/" class="btn-projects">
+                    <a href="/experience/" class="btn-experience">
                         View Experience
-                    </a>
-                    <a href="/contact/" class="btn-contact">
-                        Contact Me
                     </a>
                 </div>
                 
@@ -96,8 +91,6 @@
                     <div class="flex flex-wrap justify-center gap-4 text-sm">
                         <a href="/" class="text-blue-600 hover:text-blue-700 hover:underline">Home</a>
                         <a href="/experience/" class="text-blue-600 hover:text-blue-700 hover:underline">Experience</a>
-                        <a href="/projects/" class="text-blue-600 hover:text-blue-700 hover:underline">Projects</a>
-                        <a href="/contact/" class="text-blue-600 hover:text-blue-700 hover:underline">Contact</a>
                     </div>
                 </div>
             </div>
@@ -116,9 +109,7 @@
         
         // Map of routes to their index.html locations
         const routes = {
-            'experience': '/experience/index.html',
-            'projects': '/projects/index.html',
-            'contact': '/contact/index.html'
+            'experience': '/experience/index.html'
         };
         
         // Only redirect if this is actually a 404 (not a direct access to 404.html)

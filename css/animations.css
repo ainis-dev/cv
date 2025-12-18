@@ -91,57 +91,6 @@
     transform: scale(0.98);
 }
 
-/* Custom Landing Page Buttons */
-.btn-experience,
-.btn-projects,
-.btn-contact {
-    color: white;
-    font-weight: 600;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transform: scale(1);
-    display: inline-block;
-    text-decoration: none;
-}
-
-.btn-experience {
-    background: linear-gradient(to right, #3b82f6, #2563eb);
-}
-
-.btn-experience:hover {
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-}
-
-.btn-projects {
-    background: linear-gradient(to right, #8b5cf6, #7c3aed);
-}
-
-.btn-projects:hover {
-    background: linear-gradient(to right, #7c3aed, #6d28d9);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
-}
-
-.btn-contact {
-    background: linear-gradient(to right, #6366f1, #4f46e5);
-}
-
-.btn-contact:hover {
-    background: linear-gradient(to right, #4f46e5, #4338ca);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
-}
-
-.btn-experience:active,
-.btn-projects:active,
-.btn-contact:active {
-    transform: translateY(0) scale(0.98);
-}
-
 /* Card Hover Effects */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -169,4 +118,204 @@
 .stagger-item:nth-child(3) { transition-delay: 0.3s; }
 .stagger-item:nth-child(4) { transition-delay: 0.4s; }
 .stagger-item:nth-child(5) { transition-delay: 0.5s; }
+
+/* Enhanced fade-in with stagger */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glass morphism effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Smooth hover lift effect */
+.hover-lift-smooth {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift-smooth:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline item stagger animation */
+.fade-in:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.fade-in:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Expandable content animation */
+.expandable-content {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+    padding-top: 0;
+}
+
+.expandable-content:not(.hidden) {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1rem;
+    transition: max-height 0.5s ease-in, opacity 0.4s ease-in, padding 0.4s ease-in;
+}
+
+.timeline-item.expanded .expandable-content {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+/* Enhanced Timeline Item Styles */
+.timeline-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item:hover {
+    transform: translateY(-2px);
+}
+
+.timeline-item.group:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Improved expandable content animation */
+.expandable-content {
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease-out,
+                padding 0.3s ease-out;
+}
+
+/* Better badge styling */
+.timeline-item .rounded-lg {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item:hover .rounded-lg {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only.focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Smooth expand/collapse animation */
+.expandable-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease-out,
+                padding 0.3s ease-out;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.expandable-content:not(.hidden) {
+    max-height: 2000px;
+    opacity: 1;
+    padding-top: 2rem;
+    padding-bottom: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease-in,
+                padding 0.4s ease-in;
+}
+
+/* Back to top button */
+#back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#mobile-menu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Focus states for better accessibility */
+*:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Improved nav link active state */
+.nav-link.active {
+    color: #2563eb;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+}
 
